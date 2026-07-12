@@ -8,7 +8,6 @@ import {
   MessageCircle,
   FileText,
   ArrowUpRight,
-  Sparkles,
 } from 'lucide-react'
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
@@ -16,204 +15,174 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 export default function Contact() {
   const { ref, isVisible } = useScrollAnimation()
 
+  const services = [
+    'AI Products',
+    'SaaS',
+    'Automation',
+    'Web Development',
+  ]
+
   const socials = [
     {
-      name: 'GitHub',
       icon: Github,
       href: 'https://github.com/yourusername',
+      hover: 'hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-400',
     },
     {
-      name: 'LinkedIn',
       icon: Linkedin,
       href: 'https://linkedin.com/in/yourprofile',
+      hover: 'hover:border-blue-400 hover:bg-blue-500/10 hover:text-blue-400',
     },
     {
-      name: 'Email',
       icon: Mail,
       href: 'mailto:youremail@gmail.com',
+      hover: 'hover:border-red-400 hover:bg-red-500/10 hover:text-red-400',
     },
     {
-      name: 'WhatsApp',
       icon: MessageCircle,
       href: 'https://wa.me/91XXXXXXXXXX',
+      hover:
+        'hover:border-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-400',
     },
     {
-      name: 'Resume',
       icon: FileText,
       href: '/resume.pdf',
+      hover:
+        'hover:border-violet-400 hover:bg-violet-500/10 hover:text-violet-400',
     },
   ]
 
   return (
-    <section id="contact" className="relative py-24 px-5 lg:px-8">
-
+    <section
+      id="contact"
+      className="relative overflow-hidden px-4 py-16 sm:px-6 md:py-20 lg:px-8 lg:py-24"
+    >
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-cyan-500/10 to-transparent" />
 
-      <div className="mx-auto max-w-6xl rounded-[34px] border border-white/10 bg-[#090c16]/80 backdrop-blur-2xl p-8">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-white/10 bg-[#090c16]/80 backdrop-blur-2xl p-6 sm:p-8 lg:p-10">
 
         {/* Heading */}
 
         <div className="text-center">
 
-          <p className="text-cyan-400 uppercase tracking-[0.45em] text-sm">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.35em] text-cyan-400">
             Contact
           </p>
 
-          <h2 className="mt-4 text-4xl md:text-6xl font-bold text-white">
+          <h2 className="mt-4 text-3xl font-bold text-white sm:text-5xl lg:text-6xl">
             Have an Idea? Let's Build It
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-slate-400 leading-8">
+          <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-slate-400 sm:text-base sm:leading-8">
             Looking to build an AI product, SaaS platform, automation,
-            website or collaborate on something exciting? Let's connect.
+            website or collaborate on something exciting?
+            Let's connect.
           </p>
 
         </div>
 
-        {/* Grid */}
-
         <div
           ref={ref}
-          className={`mt-14 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]
-          transition-all duration-700 ${isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10'
-            }`}
+          className={`mt-12 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]
+          transition-all duration-700 ${
+            isVisible
+              ? 'translate-y-0 opacity-100'
+              : 'translate-y-10 opacity-0'
+          }`}
         >
 
-          {/* Left */}
-          {/* LEFT PANEL */}
+          {/* LEFT */}
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 backdrop-blur-2xl"
+            className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 sm:p-8"
           >
-            {/* Background Glow */}
-            <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-500/20 blur-[110px]" />
-            <div className="absolute -left-24 -bottom-24 h-64 w-64 rounded-full bg-violet-500/20 blur-[110px]" />
+
+            <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-500/20 blur-[120px]" />
+            <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-violet-500/20 blur-[120px]" />
 
             <div className="relative z-10">
 
-              <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
+              <p className="text-xs uppercase tracking-[0.35em] text-cyan-400">
                 LET'S CONNECT
               </p>
 
-              <h3 className="mt-4 text-3xl font-bold text-white leading-tight">
-    
+              <h3 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
                 I build digital businesses.
               </h3>
 
-              <p className="mt-5 max-w-md leading-8 text-slate-400">
-                From AI-powered SaaS platforms to intelligent automation and immersive
-                web experiences, I enjoy transforming ambitious ideas into products
-                that deliver measurable value.
+              <p className="mt-5 max-w-lg text-sm leading-7 text-slate-400 sm:text-base sm:leading-8">
+                From AI-powered SaaS platforms to intelligent automation and
+                immersive web experiences, I enjoy transforming ambitious ideas
+                into products that deliver measurable value.
               </p>
 
               {/* Services */}
 
               <div className="mt-8 flex flex-wrap gap-3">
-
-                {[
-                  "AI Products",
-                  "SaaS",
-                  "Automation",
-                  "Web Development",
-                ].map((service) => (
+                {services.map((item) => (
                   <span
-                    key={service}
-                    className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300"
+                    key={item}
+                    className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs text-cyan-300 sm:text-sm"
                   >
-                    {service}
+                    {item}
                   </span>
                 ))}
-
               </div>
 
-              {/* Social Icons */}
+              {/* Social */}
 
               <div className="mt-10">
 
-                <h4 className="mb-5 text-white font-medium">
+                <h4 className="mb-5 font-medium text-white">
                   Connect with me
                 </h4>
 
-                <div className="grid grid-cols-5 gap-4">
+                <div className="grid grid-cols-3 gap-4 sm:grid-cols-5">
 
-                  <a
-                    href="https://github.com/yourusername"
-                    target="_blank"
-                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-cyan-400 hover:bg-cyan-500/10 hover:-translate-y-1"
-                  >
-                    <Github
-                      size={24}
-                      className="text-white group-hover:text-cyan-400"
-                    />
-                  </a>
+                  {socials.map((social, index) => {
+                    const Icon = social.icon
 
-                  <a
-                    href="https://linkedin.com/in/yourprofile"
-                    target="_blank"
-                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-blue-400 hover:bg-blue-500/10 hover:-translate-y-1"
-                  >
-                    <Linkedin
-                      size={24}
-                      className="text-white group-hover:text-blue-400"
-                    />
-                  </a>
-
-                  <a
-                    href="mailto:youremail@gmail.com"
-                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-red-400 hover:bg-red-500/10 hover:-translate-y-1"
-                  >
-                    <Mail
-                      size={24}
-                      className="text-white group-hover:text-red-400"
-                    />
-                  </a>
-
-                  <a
-                    href="https://wa.me/91XXXXXXXXXX"
-                    target="_blank"
-                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-emerald-400 hover:bg-emerald-500/10 hover:-translate-y-1"
-                  >
-                    <MessageCircle
-                      size={24}
-                      className="text-white group-hover:text-emerald-400"
-                    />
-                  </a>
-
-                  <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-violet-400 hover:bg-violet-500/10 hover:-translate-y-1"
-                  >
-                    <FileText
-                      size={24}
-                      className="text-white group-hover:text-violet-400"
-                    />
-                  </a>
+                    return (
+                      <a
+                        key={index}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`group flex h-14 w-full items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 ${social.hover}`}
+                      >
+                        <Icon
+                          size={22}
+                          className="transition-colors duration-300"
+                        />
+                      </a>
+                    )
+                  })}
 
                 </div>
 
               </div>
 
             </div>
+
           </motion.div>
-          {/* Right */}
+
+          {/* RIGHT */}
 
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="space-y-8"
+            className="space-y-6"
           >
 
             {/* Availability */}
 
-            <div className="rounded-[30px] border border-white/10 bg-[#101523]/90 p-8 backdrop-blur-xl">
+            <div className="rounded-3xl border border-white/10 bg-[#101523]/90 p-6 sm:p-8">
 
-              <p className="uppercase tracking-[0.35em] text-sm text-cyan-400">
+              <p className="text-xs uppercase tracking-[0.35em] text-cyan-400">
                 Availability
               </p>
 
@@ -221,55 +190,33 @@ export default function Contact() {
                 Let's Work Together
               </h3>
 
-              <div className="mt-8 space-y-6">
+              <div className="mt-8 space-y-5">
 
-                <div className="flex justify-between">
+                {[
+                  ['Response Time', 'Within 24 Hours'],
+                  ['Location', 'India 🇮🇳'],
+                  ['Time Zone', 'IST (UTC +5:30)'],
+                  ['Work Mode', 'Remote Worldwide'],
+                ].map(([title, value], index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col gap-1 border-b border-white/5 pb-4 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <span className="text-sm text-slate-400">
+                      {title}
+                    </span>
 
-                  <span className="text-slate-400">
-                    Response Time
-                  </span>
-
-                  <span className="text-white">
-                    Within 24 Hours
-                  </span>
-
-                </div>
-
-                <div className="flex justify-between">
-
-                  <span className="text-slate-400">
-                    Location
-                  </span>
-
-                  <span className="text-white">
-                    India 🇮🇳
-                  </span>
-
-                </div>
-
-                <div className="flex justify-between">
-
-                  <span className="text-slate-400">
-                    Time Zone
-                  </span>
-
-                  <span className="text-white">
-                    IST (UTC +5:30)
-                  </span>
-
-                </div>
-
-                <div className="flex justify-between">
-
-                  <span className="text-slate-400">
-                    Work Mode
-                  </span>
-
-                  <span className="text-emerald-400">
-                    Remote Worldwide
-                  </span>
-
-                </div>
+                    <span
+                      className={`text-sm ${
+                        title === 'Work Mode'
+                          ? 'text-emerald-400'
+                          : 'text-white'
+                      }`}
+                    >
+                      {value}
+                    </span>
+                  </div>
+                ))}
 
               </div>
 
@@ -277,21 +224,20 @@ export default function Contact() {
 
             {/* CTA */}
 
-            <div className="rounded-[30px] border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-transparent p-8">
+            <div className="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-transparent p-6 sm:p-8">
 
-              <h5 className="mt-4 text-3xl font-bold text-white leading-tight">
+              <h4 className="text-2xl font-bold leading-tight text-white sm:text-3xl">
                 Every product starts
                 <br />
                 with the right questions.
-              </h5>
+              </h4>
+
               <a
                 href="mailto:youremail@gmail.com"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-black transition hover:scale-105"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-black transition duration-300 hover:scale-105"
               >
                 Say Hello
-
                 <ArrowUpRight size={18} />
-
               </a>
 
             </div>
