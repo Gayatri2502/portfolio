@@ -78,9 +78,9 @@ export const about = {
 
 export const stats = [
   { label: 'Years Experience', value: 1, suffix: '+' },
-  { label: 'Products Launched', value: 28, suffix: '+' },
-  { label: 'Global Clients', value: 14, suffix: '+' },
-  { label: 'Open Source', value: 9, suffix: '+' },
+  { label: 'Products Launched', value: 2, suffix: '+' },
+  { label: 'Global Clients', value: 3, suffix: '+' },
+  { label: 'Open Source', value: 3, suffix: '+' },
 ]
 
 export const services: Service[] = [
@@ -265,6 +265,5 @@ export const testimonials: Testimonial[] = [
 export const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/example' },
   { label: 'LinkedIn', href: 'https://linkedin.com' },
-  { label: 'Twitter', href: 'https://twitter.com' },
   { label: 'Email', href: 'mailto:hello@example.com' },
 ]

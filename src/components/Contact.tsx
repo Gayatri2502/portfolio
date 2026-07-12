@@ -1,146 +1,307 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { socialLinks } from '@/data/portfolio'
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MessageCircle,
+  FileText,
+  ArrowUpRight,
+  Sparkles,
+} from 'lucide-react'
+
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export default function Contact() {
   const { ref, isVisible } = useScrollAnimation()
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  useEffect(() => {
-    if (status === 'success') {
-      const timer = window.setTimeout(() => setStatus('idle'), 3200)
-      return () => window.clearTimeout(timer)
-    }
-  }, [status])
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = event.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    if (!formData.name || !formData.email || !formData.message) {
-      setStatus('error')
-      return
-    }
-
-    setStatus('success')
-    setFormData({ name: '', email: '', message: '' })
-  }
+  const socials = [
+    {
+      name: 'GitHub',
+      icon: Github,
+      href: 'https://github.com/yourusername',
+    },
+    {
+      name: 'LinkedIn',
+      icon: Linkedin,
+      href: 'https://linkedin.com/in/yourprofile',
+    },
+    {
+      name: 'Email',
+      icon: Mail,
+      href: 'mailto:youremail@gmail.com',
+    },
+    {
+      name: 'WhatsApp',
+      icon: MessageCircle,
+      href: 'https://wa.me/91XXXXXXXXXX',
+    },
+    {
+      name: 'Resume',
+      icon: FileText,
+      href: '/resume.pdf',
+    },
+  ]
 
   return (
-    <section id="contact" className="relative py-24 px-4 lg:px-8">
-      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#00d4ff]/10 to-transparent" />
-      <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-[#080b14]/80 p-8 shadow-glow backdrop-blur-xl">
-        <div className="mb-12 text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-accent/80">Contact</p>
-          <h2 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">Have an Idea? Let's Build It</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-base leading-7 text-slate-300">
-            Ready to collaborate on a bold interface, AI product, or motion-led brand experience? Send a note and I’ll get back to you within 24 hours.
+    <section id="contact" className="relative py-24 px-5 lg:px-8">
+
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-cyan-500/10 to-transparent" />
+
+      <div className="mx-auto max-w-6xl rounded-[34px] border border-white/10 bg-[#090c16]/80 backdrop-blur-2xl p-8">
+
+        {/* Heading */}
+
+        <div className="text-center">
+
+          <p className="text-cyan-400 uppercase tracking-[0.45em] text-sm">
+            Contact
           </p>
+
+          <h2 className="mt-4 text-4xl md:text-6xl font-bold text-white">
+            Have an Idea? Let's Build It
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-3xl text-slate-400 leading-8">
+            Looking to build an AI product, SaaS platform, automation,
+            website or collaborate on something exciting? Let's connect.
+          </p>
+
         </div>
+
+        {/* Grid */}
 
         <div
           ref={ref}
-          className={`grid gap-10 lg:grid-cols-[1.1fr_0.9fr] ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          } transition-all duration-700`}
+          className={`mt-14 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]
+          transition-all duration-700 ${isVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-10'
+            }`}
         >
-          <form onSubmit={handleSubmit} className="space-y-6 rounded-[2rem] border border-white/10 bg-[#0d1222]/90 p-8 shadow-glow">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-2">
-                Name
-              </label>
-              <input
-                className="w-full rounded-3xl border border-white/10 bg-[#08101c] px-4 py-3 text-white outline-none transition focus:border-accent"
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your full name"
-                required
-              />
-            </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-200 mb-2">
-                Email
-              </label>
-              <input
-                className="w-full rounded-3xl border border-white/10 bg-[#08101c] px-4 py-3 text-white outline-none transition focus:border-accent"
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="hello@example.com"
-                required
-              />
-            </div>
+          {/* Left */}
+          {/* LEFT PANEL */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 backdrop-blur-2xl"
+          >
+            {/* Background Glow */}
+            <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-500/20 blur-[110px]" />
+            <div className="absolute -left-24 -bottom-24 h-64 w-64 rounded-full bg-violet-500/20 blur-[110px]" />
 
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-slate-200 mb-2">
-                Message
-              </label>
-              <textarea
-                className="h-40 w-full rounded-3xl border border-white/10 bg-[#08101c] px-4 py-3 text-white outline-none transition focus:border-accent resize-none"
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Tell me about your project or collaboration."
-                required
-              />
-            </div>
+            <div className="relative z-10">
 
-            <button
-              type="submit"
-              className="inline-flex w-full items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-slate-950 shadow-glow hover:bg-[#00b2e3]"
-            >
-              Send Message
-            </button>
+              <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
+                LET'S CONNECT
+              </p>
 
-            {status === 'success' ? (
-              <p className="rounded-3xl bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">Message sent successfully — I’ll respond soon.</p>
-            ) : null}
-            {status === 'error' ? (
-              <p className="rounded-3xl bg-rose-500/10 px-4 py-3 text-sm text-rose-300">Please complete all form fields before sending.</p>
-            ) : null}
-          </form>
+              <h3 className="mt-4 text-3xl font-bold text-white leading-tight">
+    
+                I build digital businesses.
+              </h3>
 
-          <div className="space-y-6">
-            <div className="rounded-[2rem] border border-white/10 bg-[#0d1222]/90 p-8 shadow-glow">
-              <p className="text-sm uppercase tracking-[0.3em] text-accent/80">Social</p>
-              <p className="mt-3 text-lg font-medium text-white">Reach out on your preferred channel.</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="rounded-3xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-accent hover:bg-white/10"
+              <p className="mt-5 max-w-md leading-8 text-slate-400">
+                From AI-powered SaaS platforms to intelligent automation and immersive
+                web experiences, I enjoy transforming ambitious ideas into products
+                that deliver measurable value.
+              </p>
+
+              {/* Services */}
+
+              <div className="mt-8 flex flex-wrap gap-3">
+
+                {[
+                  "AI Products",
+                  "SaaS",
+                  "Automation",
+                  "Web Development",
+                ].map((service) => (
+                  <span
+                    key={service}
+                    className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300"
                   >
-                    {link.label}
-                  </a>
+                    {service}
+                  </span>
                 ))}
+
               </div>
+
+              {/* Social Icons */}
+
+              <div className="mt-10">
+
+                <h4 className="mb-5 text-white font-medium">
+                  Connect with me
+                </h4>
+
+                <div className="grid grid-cols-5 gap-4">
+
+                  <a
+                    href="https://github.com/yourusername"
+                    target="_blank"
+                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-cyan-400 hover:bg-cyan-500/10 hover:-translate-y-1"
+                  >
+                    <Github
+                      size={24}
+                      className="text-white group-hover:text-cyan-400"
+                    />
+                  </a>
+
+                  <a
+                    href="https://linkedin.com/in/yourprofile"
+                    target="_blank"
+                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-blue-400 hover:bg-blue-500/10 hover:-translate-y-1"
+                  >
+                    <Linkedin
+                      size={24}
+                      className="text-white group-hover:text-blue-400"
+                    />
+                  </a>
+
+                  <a
+                    href="mailto:youremail@gmail.com"
+                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-red-400 hover:bg-red-500/10 hover:-translate-y-1"
+                  >
+                    <Mail
+                      size={24}
+                      className="text-white group-hover:text-red-400"
+                    />
+                  </a>
+
+                  <a
+                    href="https://wa.me/91XXXXXXXXXX"
+                    target="_blank"
+                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-emerald-400 hover:bg-emerald-500/10 hover:-translate-y-1"
+                  >
+                    <MessageCircle
+                      size={24}
+                      className="text-white group-hover:text-emerald-400"
+                    />
+                  </a>
+
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition hover:border-violet-400 hover:bg-violet-500/10 hover:-translate-y-1"
+                  >
+                    <FileText
+                      size={24}
+                      className="text-white group-hover:text-violet-400"
+                    />
+                  </a>
+
+                </div>
+
+              </div>
+
+            </div>
+          </motion.div>
+          {/* Right */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            className="space-y-8"
+          >
+
+            {/* Availability */}
+
+            <div className="rounded-[30px] border border-white/10 bg-[#101523]/90 p-8 backdrop-blur-xl">
+
+              <p className="uppercase tracking-[0.35em] text-sm text-cyan-400">
+                Availability
+              </p>
+
+              <h3 className="mt-4 text-2xl font-semibold text-white">
+                Let's Work Together
+              </h3>
+
+              <div className="mt-8 space-y-6">
+
+                <div className="flex justify-between">
+
+                  <span className="text-slate-400">
+                    Response Time
+                  </span>
+
+                  <span className="text-white">
+                    Within 24 Hours
+                  </span>
+
+                </div>
+
+                <div className="flex justify-between">
+
+                  <span className="text-slate-400">
+                    Location
+                  </span>
+
+                  <span className="text-white">
+                    India 🇮🇳
+                  </span>
+
+                </div>
+
+                <div className="flex justify-between">
+
+                  <span className="text-slate-400">
+                    Time Zone
+                  </span>
+
+                  <span className="text-white">
+                    IST (UTC +5:30)
+                  </span>
+
+                </div>
+
+                <div className="flex justify-between">
+
+                  <span className="text-slate-400">
+                    Work Mode
+                  </span>
+
+                  <span className="text-emerald-400">
+                    Remote Worldwide
+                  </span>
+
+                </div>
+
+              </div>
+
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-[#0d1222]/90 p-8 shadow-glow">
-              <p className="text-sm uppercase tracking-[0.3em] text-accent/80">Office</p>
-              <p className="mt-3 text-lg font-medium text-white">Remote-first. Global availability for product teams.</p>
-              <p className="mt-4 text-slate-400">I collaborate with founders, startups, and design-led organizations to launch digital products.</p>
+            {/* CTA */}
+
+            <div className="rounded-[30px] border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-transparent p-8">
+
+              <h5 className="mt-4 text-3xl font-bold text-white leading-tight">
+                Every product starts
+                <br />
+                with the right questions.
+              </h5>
+              <a
+                href="mailto:youremail@gmail.com"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-black transition hover:scale-105"
+              >
+                Say Hello
+
+                <ArrowUpRight size={18} />
+
+              </a>
+
             </div>
-          </div>
+
+          </motion.div>
+
         </div>
+
       </div>
+
     </section>
   )
 }

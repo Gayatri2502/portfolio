@@ -2,10 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { hero } from "@/data/portfolio";
 import Button from "@/components/ui/Button";
-import Image from "next/image";
 
 export default function Hero() {
   const [text, setText] = useState("");
@@ -69,29 +67,6 @@ export default function Hero() {
 
           {/* Top Area */}
           <div className="relative flex flex-col gap-8 lg:flex-row">
-
-            {/* PHOTO */}
-            <motion.div
-              initial={{ opacity: 0, rotate: -6 }}
-              animate={{ opacity: 1, rotate: -3 }}
-              transition={{ duration: 0.8 }}
-              className="relative w-[220px]"
-            >
-              <div className="absolute -top-3 left-10 h-8 w-24 rotate-[-8deg] bg-slate-200/40 backdrop-blur-sm" />
-
-              {/* <div className="rounded-md border border-white/10 bg-white p-3 shadow-2xl">
-                <Image
-                  src={GayatriImage}
-                  alt="Gayatri Samal"
-                  width={300}
-                  height={380}
-                  className="h-[280px] w-full object-cover"
-                  priority
-                />
-              </div> */}
-
-            </motion.div>
-
             {/* CONTENT */}
             <div className="flex-1">
 
@@ -145,7 +120,7 @@ export default function Hero() {
               </div>
 
               {/* Curved Arrow Note 2 */}
-              <div className="absolute left-0 top-[350px] hidden xl:block">
+              {/* <div className="absolute left-0 top-[350px] hidden xl:block">
                 <svg width="100" height="80">
                   <path
                     d="M20 10 C0 50 50 70 80 60"
@@ -161,7 +136,7 @@ export default function Hero() {
                   <br />
                   tech-powered impact.
                 </p>
-              </div>
+              </div> */}
 
             </div>
           </div>
@@ -223,14 +198,12 @@ export default function Hero() {
 
               {/* Right Side Buttons */}
               <div className="flex flex-col gap-3 sm:flex-row">
-
                 <Button
                   variant="ghost"
                   onClick={() => (location.hash = "#projects")}
                 >
                   View My Work
                 </Button>
-
               </div>
 
             </div>
@@ -304,6 +277,3 @@ export default function Hero() {
     </section>
   );
 }
-
-
-
