@@ -31,7 +31,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Alphacentauric | AI Product Portfolio",
+  title: "Gayatri Samal | AI Solution Architect",
   description:
     "Premium AI engineer portfolio showcasing product design, motion experiences, and web innovation.",
 };
